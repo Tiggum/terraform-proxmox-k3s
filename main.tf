@@ -33,7 +33,7 @@ resource "proxmox_vm_qemu" "k3s_master" {
   }
 
   #Cloud init-settings
-  ipconfig0       = "ip=192.168.0.150/24,gw=192.168.0.1"
+  #ipconfig0       = "ip=192.168.0.150/24,gw=192.168.0.1"
 
   sshkeys = file(var.ssh_key)
 
@@ -77,4 +77,8 @@ resource "proxmox_vm_qemu" "k3s_node" {
  ipconfig0       = "ip=192.168.0.15${count.index + 1}/24,gw=192.168.0.1"
 
  sshkeys         = file(var.ssh_key)
+}
+
+output "k3s_master_ip" {
+  value = proxmox_vm_qemu.k3s_master[0].default_ipv4_address
 }

@@ -15,12 +15,5 @@ variable "ssh_key" {
   default = "~/.ssh/id_rsa.pub"
 }
 
-variable "cluster" {
-  type = string
-  default = [
-    "pve1",
-    "pve2",
-    "pve3",
-  ]
-}
+
 
