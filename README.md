@@ -1,5 +1,3 @@
-# terraform-proxmox-k3s
-
 # Adding terraform user on proxmox 
 ### Create the user
 pveum user add terraform-prov@pve --password $PASSWORD
@@ -7,10 +5,14 @@ pveum user add terraform-prov@pve --password $PASSWORD
 ### Assign the user the correct role
 pveum aclmod / -user terraform-prov@pve -role Administrator
 
+
+
 # Other Configuration changes required
 Modify the server url in variables.tf
 
 Make sure to change server parameters in main.tf
+
+
 
 # Below use the steps below to make a template for the cloud-init template
 ### Create the instance
